@@ -1,0 +1,11 @@
+<section id="AutocompletePage">
+<div ng-controller="AutocompleteCtrl" >
+
+	<div class="col-md-12">
+		<h1>Pruebas de Autocomplete</h1>
+		<br>
+	   <autocomplete ng-model="result" class="col-md-4" attr-placeholder="Elija su equipo" click-activation="true" data="teams" on-select="doSomethingElse"></autocomplete>
+	   <h4>Has seleccionado: {{salida}}</h4>
+	</div>
+</div>
+</section>

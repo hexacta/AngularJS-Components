@@ -1,0 +1,16 @@
+<section id="Autocomplete2Page">
+<div ng-controller="Autocomplete2Ctrl">
+
+    <div class="form-group move-down">
+      <label for="Autocomplete2">Autocomplete Model</label>
+      <input type="text" id="Autocomplete2" ng-model="autocomplete" class="form-control col-md-6" ng-autocomplete options="options" details="details"/>
+
+      <br>
+      <b>autocomplete</b>: {{autocomplete}}
+      <br><br>
+      <b>details (formatted address)</b>: {{details.formatted_address}}
+
+    </div>
+
+</div>
+</section>

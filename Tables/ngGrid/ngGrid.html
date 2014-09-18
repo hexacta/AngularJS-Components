@@ -1,0 +1,37 @@
+<html ng-app="myApp">
+<head lang="en">
+    	<meta charset="utf-8">
+    	<link rel="stylesheet" type="text/css" href="css/ng-grid.css" />
+    	<link rel="stylesheet" type="text/css" href="css/style.css" />
+    
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
+    	<script type="text/javascript" src="js/ng-grid-2.0.1.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</head>
+    
+<body ng-controller="MyCtrl">
+	<table>
+	<thead>
+	<tr>
+		<th>FILTRADO</th>
+		<th>ORDENAMIENTO</th>
+		<th>EDICI&#211N IN-LINE</th>
+	</tr>			
+	</thead>
+	<tbody>
+	<tr>	
+		<td>
+			<div class="gridStyle" ng-grid="gridOptions1">
+    			</div>
+		</td>
+		<td>
+    			<div class="gridStyle" ng-grid="gridOptions2">
+    			</div>
+		</td>		
+		<td>
+			<div class="gridStyle" ng-grid="gridOptions3">
+    			</div>
+		</td>
+</body>
+</html>

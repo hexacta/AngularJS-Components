@@ -1,0 +1,9 @@
+Se utilizan clases y atributos para darle estilo a los objetos que se pueden draggear.
+
+Cuando el objeto draggeable está en su lugar => .drag-object [ng-drag]
+
+Cuando se está arrastrando el objeto => [ng-drag].dragging
+
+Cuando se está arrastrando el objeto sobre la zona de drop, para cambiar la apariencia de la misma => [ng-drag].drag-over
+
+Para darle estilo a la zona de drop => [ng-drop]

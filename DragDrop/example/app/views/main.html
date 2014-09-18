@@ -1,0 +1,10 @@
+<ul style="padding:0">
+	<li class="drag-object" ng-drag="true" ng-drag-data="item" ng-drag-success="onDragComplete($data,$event)" ng-repeat="item in draggableItems" ng-show="assignIndex(item,$index)"> {{item.name}} </li>
+</ul>
+
+<div ng-drop="true" ng-drop-success="onDropComplete($data,$event)" >
+	<span class="title">Drop area</span>
+	<ul>
+		<li class="drag-object" ng-drag="false" ng-repeat="item in dragAreaItems" > {{item.name}} </li>
+	</ul>
+</div>

@@ -1,0 +1,38 @@
+
+<div class="jumbotron">
+  
+<div class="row marketing">
+	
+	 	
+	<div align="center">
+		
+		<div ng-swipe-left="swipe(-1)" ng-swipe-right="swipe(1)">
+			<img ng-src="{{images[actualIndex]}}" width="240px" height="auto"/>
+		</div>
+		You can Swipe photos! Photo nº {{actualIndex + 1}}
+	</div>
+	
+	
+	
+	<div id="floatMenu">
+		<ul ng-repeat="menu in menus">
+			
+			<li><a href="#" ng-swipe-right="select(menu)" >{{menu.name}}</a></li>
+			
+		</ul>
+	</div>
+	
+	<div id="floatSubMenu" ng-show="isSelected()">
+		<ul ng-repeat="submenu in menus[selected].submenus">
+			
+			<li><a href="#" ng-swipe-left="unselect()" >{{submenu}}</a></li>
+			
+		</ul>
+	</div>
+	
+		
+	
+</div>
+	
+	
+</div>

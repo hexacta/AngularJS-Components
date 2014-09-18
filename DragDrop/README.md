@@ -1,4 +1,4 @@
-AngularJS-Components
+DragDrop
 ====================
 1. Instalar
   1. Para instalar la directiva, solo hay que copiar el archivo que se encuentra en src al directorio donde se encuentren las directivas de Angular en el proyecto.

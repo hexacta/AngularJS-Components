@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script data-require="angular.js@*" data-semver="1.2.0-rc3-nonmin" src="http://code.angularjs.org/1.2.0-rc.3/angular.js"></script>
+    <script data-require="ng-table@*" data-semver="0.3.0" src="http://bazalt-cms.com/assets/ng-table/0.3.0/ng-table.js"></script>
+    
+    <link data-require="ng-table@*" data-semver="0.3.0" rel="stylesheet" href="http://bazalt-cms.com/assets/ng-table/0.3.0/ng-table.css" />
+    <link data-require="bootstrap-css@*" data-semver="3.0.0" rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+    
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/script.js"></script>
+</head>
+
+<body ng-app="main" ng-controller="DemoCtrl"> 
+	<table>
+	<thead>
+	<tr>
+		<th>FILTRADO</th>
+		<th>ORDENAMIENTO</th>
+		<th>EDICI&#211N IN-LINE</th>
+	</tr>			
+	</thead>
+	<tbody>
+	<tr>
+		<td>
+			<p><strong>Filtro:</strong> {{tableParams.filter()|json}}
+			<table ng-table="tableParams" show-filter="true" class="table">
+	        		<tr ng-repeat="user in $data">
+            				<td data-title="'Nombre'" filter="{ 'name': 'text' }" >
+                				{{user.name}}
+            				</td>
+            				<td data-title="'Edad'" >
+                				{{user.age}}
+            				</td>
+        			</tr>
+    			</table>
+		</td>
+		<td>
+    			<p><strong>Orden:</strong> {{tableParams2.sorting()|json}}
+
+	 		<table ng-table="tableParams2" class="table">
+        			<tr ng-repeat="user in $data">
+					<td data-title="'Nombre'" sortable="name" class="inner">
+                				{{user.name}}
+            				</td>
+            				<td data-title="'Edad'" sortable="age" class="inner">
+                				{{user.age}}
+            				</td>
+            			</tr>
+    			</table>
+
+		</td>
+		<td>
+	 		<table ng-table="tableParams3" class="table">
+				<!-- Para que tenga edición in-line solo use <input> dentro los <td>  -->
+        			<tr ng-repeat="user in $data">
+					<td data-title="'Nombre'" class="inner">
+                				<input type="text" value="{{user.name}}"/>
+            				</td>
+            				<td data-title="'Edad'" class="inner">
+                				<input type="text" value="{{user.age}}"/>
+            				</td>
+            			</tr>
+    			</table>
+
+		</td>
+	</tr>
+	<tbody>
+	</table>
+
+</body>
+</html>
+

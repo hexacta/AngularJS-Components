@@ -1,0 +1,13 @@
+body {
+    padding: 10px !important;
+    font-family: Arial;
+}
+
+.ng-table {
+    border: 1px solid #000;
+}
+
+.inner {
+   width: 100px;
+}
+

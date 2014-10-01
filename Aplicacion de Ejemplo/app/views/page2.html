@@ -1,0 +1,59 @@
+<div>
+	<h3> Tratamiento de P&oacute;lizas con Tabs </h3>
+	<tabset>
+		<tab heading="Primer Pesaña">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<legend> Clave </legend>
+					<div>
+						<label for="selectTr"> Tipo de transacci&oacute;n:</label>
+						<select class="form-control"  id="selectTr">
+							<option> Tipo Transacci&oacute;n 1</option>
+							<option> Tipo Transacci&oacute;n 2</option>
+							<option> Tipo Transacci&oacute;n 3</option>
+							<option> Tipo Transacci&oacute;n 4</option>
+						</select>
+					</div>
+					<div>
+					<label for="fechaVig"> Fecha de Vigencia: </label>
+						<div class="row">
+							<div class="col-md-11">
+								<p class="input-group">
+								<input  type="text"  class="form-control" datepicker-popup="dd/MM/yyyy" 
+								is-open="openedFrom" min-date="fromDate"  ng-model="fromDate" 
+								ng-required="true" close-text="Close" date-type="string"/> 
+								<span class="input-group-btn">
+									<button type="button" class="btn btn-default" ng-click="openFrom($event)">
+									<i class="glyphicon glyphicon-calendar"></i></button>
+								</span>
+								</p>
+							</div>
+						</div>
+					</div>
+					<label for="autocomp">Producto: </label>
+					<div  id="autocomp">
+						<angucomplete pause="100" selectedobject="selectedOption" localdata="options" searchfields="op" titlefield="op" minlength="2" inputclass="form-control form-control-small" matchclass="highlight" />
+					</div>
+					
+					<legend>Tipo de P&oacute;liza </legend>
+					<label> (poner checkbox)</label>
+					<legend> Relaciones </legend>
+					<label> Fecha de Contabilizaci&oacute;n:</label>
+					<label> Cliente:</label>
+				</div>
+			</div>
+		</tab>
+		<tab heading="Segunda Pesaña">
+			
+		
+		</tab>
+		<tab heading="Pesaña Inhabilitada" disabled="true">
+			Static content
+		</tab>
+    
+	</tabset>
+
+  <hr />
+
+ 
+</div>

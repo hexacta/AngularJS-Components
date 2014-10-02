@@ -32,19 +32,20 @@
 					</div>
 					<label for="autocomp">Producto: </label>
 					<div  id="autocomp">
-						<angucomplete pause="100" selectedobject="selectedOption" localdata="options" searchfields="op" titlefield="op" minlength="2" inputclass="form-control form-control-small" matchclass="highlight" />
+						<angucomplete pause="100" selectedobject="selectedOption" localdata="products" searchfields="op" titlefield="op" minlength="2" inputclass="form-control form-control-small" matchclass="highlight" />
 					</div>
 					
 					<legend>Tipo de P&oacute;liza </legend>
-					<label> (poner checkbox)</label>
-					<legend> Relaciones </legend>
-					<label> Fecha de Contabilizaci&oacute;n:</label>
-					<label> Cliente:</label>
+					<div>
+						<input type="radio" name="tipoPoliza" value="individual" id="radioInd"/><label for="radioInd">Individual</label></br>
+						<input type="radio" name="tipoPoliza" value="colectivo" id="radioCol"/><label for="radioCol">Colectivo</label></br>
+						<input type="radio" name="tipoPoliza" value="multilocalidad" id="radioMulti"/><label for="radioMulti">Multilocalidad</label>
+					</div>
 				</div>
 			</div>
 		</tab>
 		<tab heading="Segunda Pesaña">
-			
+			<a data-toggle="modal" data-target="#myModal">Mostrar Modal</a>
 		
 		</tab>
 		<tab heading="Pesaña Inhabilitada" disabled="true">
@@ -53,7 +54,26 @@
     
 	</tabset>
 
-  <hr />
+	<hr />
+  
+  
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+					<h3 class="modal-title" id="myModalLabel">Modal demo</h3>
+				</div>
+				<div class="modal-body">
+					Modal de ejemplo
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+		
 
  
 </div>

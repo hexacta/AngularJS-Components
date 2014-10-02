@@ -1,5 +1,5 @@
 angular.module('aplicacionEjemploAngularApp')
-  .controller('Page3Ctrl', function ($scope) {
+  .controller('Page3Ctrl', function ($scope, $rootScope) {
 	$scope.openedFrom = false;
 	
 	$scope.openFrom = function($event) {
@@ -15,4 +15,6 @@ angular.module('aplicacionEjemploAngularApp')
 	$scope.changeTab = function(value){
 		$scope.tabNum += value;
 	};
+	
+	$scope.products = $rootScope.options;
   });

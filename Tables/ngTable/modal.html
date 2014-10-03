@@ -1,0 +1,34 @@
+<html>	
+	<body>
+	    <div>
+		<form>
+					 <table>
+					    <tr>
+				<td><input type="text" id="newName" ng-model="myForm.name" placeholder="Nombre"/></td>
+				<td><input type="text" id="newAge" ng-model="myForm.age" placeholder="Edad"/></td						</tr>
+						<tr>
+							<td align="right">
+								<input type="button" value="Guardar" ng-click="addNew()"/>
+							</td>
+							<td>
+								<input type="button" value="Cancelar" ng-click="toggleNew()"/>
+							</td>
+						</tr>
+						</table>
+					</form>
+		<p align="center"><b>Nuevo</b></p>
+		<form>
+			<label for="Nombre">Nombre</label><br>
+			<input type="text" id="newName" ng-model="myForm.name" name="Nombre" placeholder="Ingrese nombre"/>
+			<br>			
+			<label for="Edad">Edad</label><br>
+			<td><input type="text" id="newAge" ng-model="myForm.age" name="Edad" placeholder="Ingrese edad"/>
+			<br>
+			<div align="center">	
+				<input type="submit" value="Guardar"/>
+				<input type="button" value="Cancelar"/>
+			</div>	
+		</form>
+	    </div>
+	<body>	
+<html>

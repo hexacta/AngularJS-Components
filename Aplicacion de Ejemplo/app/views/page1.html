@@ -1,0 +1,19 @@
+<div>
+	<h3> Tratamiento de P&oacute;lizas sin Tabs </h3>
+	<div >	
+		<legend>Clave</legend>
+		
+		<table ng-table="tableParams" class="table">
+			<tr ng-repeat="tramite in $data">
+				<td data-title="'Urgencia'" sortable="'urgencia'">{{tramite.urgencia}}</td>
+				<td data-title="'Info'">{{tramite.info}}</td>
+				<td data-title="'N&#186; de Tr&aacute;mite'" sortable="'numero'">{{tramite.numero}}</td>
+				<td data-title="'Tipo de Tr&aacute;mite'">{{tramite.tipo}}</td>
+				<td data-title="'Fecha de Cambio de Estado'" sortable="'fecha'">{{tramite.fecha}}</td>
+				<td data-title="'Estado'">{{tramite.estado}}</td>
+			</tr>
+			
+        </table>
+		
+	</div>	
+</div>

@@ -1,0 +1,64 @@
+<div>
+	<h3> Asistente de Carga Masiva de Adherentes </h3>
+	
+	<tabset>
+		<tab heading="Carga de Datos Particulares" active="tabNum == 1" disabled="true">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<legend> Datos Particulares de la Lista de Adherentes </legend>
+					<div>
+						<label for="selectTr"> Tipo de transacci&oacute;n:</label>
+						<select class="form-control"  id="selectTr">
+							<option> Tipo Transacci&oacute;n 1</option>
+							<option> Tipo Transacci&oacute;n 2</option>
+							<option> Tipo Transacci&oacute;n 3</option>
+							<option> Tipo Transacci&oacute;n 4</option>
+						</select>
+					</div>
+					<div>
+						<label > Fecha de Vigencia: </label>
+						<div class="row">
+							<div class="col-md-11">
+								<p class="input-group">
+									<input  id="fechaVig" type="text"  class="form-control" datepicker-popup="dd/MM/yyyy" 
+									is-open="openedFrom" min-date="fromDate"  ng-model="fromDate" 
+									ng-required="true" close-text="Close" date-type="string"/> 
+									<span class="input-group-btn">
+										<button type="button" class="btn btn-default" ng-click="openFrom($event)">
+										<i class="glyphicon glyphicon-calendar"></i></button>
+									</span>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div>
+						<label for="prod">Producto (cod.): </label>
+						<div  id="prod">
+							<angucomplete pause="200" selectedobject="selectedProduct" localdata="products" searchfields="code" titlefield="code,op" minlength="1" inputclass="form-control form-control-small" matchclass="highlight" placeholder="C&oacute;digo de Producto"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</tab>
+		<tab heading="Archivo de Origen" active="tabNum == 2" disabled="true">
+			<div class="panel panel-default">
+				<div class="panel-body">
+			<!-- habria que poner un "examinar"-->
+				</div>
+			</div>
+		</tab>
+		<tab heading="Resultado de la importación" active="tabNum == 3" disabled="true">
+			<div class="panel panel-default">
+				<div class="panel-body">
+			<!-- habria que poner un "examinar"-->
+				</div>
+			</div>
+		</tab>
+	</tabset>
+	<div>
+		<button class="btn btn-hexacta-primary input-sm" ng-click="changeTab(-1)" ng-disabled="tabNum == 1;">Volver</button>
+		<button class="btn btn-hexacta-primary input-sm" ng-click="changeTab(1)" ng-disabled="tabNum == 3;">Continuar</button>
+	</div>
+	
+	
+</div>

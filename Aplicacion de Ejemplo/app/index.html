@@ -1,0 +1,120 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/ng-table/ng-table.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+	<link href="css/bootstrap-theme.css" rel="stylesheet" type="text/css" />
+	<link href="css/datatables/demo_page.css" rel="stylesheet"
+		type="text/css" />
+	<link href="css/datatables/demo_table.css" rel="stylesheet"
+		type="text/css" />
+	<link href="css/datatables/demo_table_jui.css" rel="stylesheet"
+		type="text/css" />
+	<link type="text/css" href="css/datatables/jquery.dataTables.css"
+		rel="stylesheet" />
+	<link type="text/css" href="css/jquery-ui.css" rel="stylesheet" />
+	<link type="text/css"
+		href="css/ui-lightness/jquery-ui-1.8.16.custom.css" rel="stylesheet" />
+	<link href="css/site.css" rel="stylesheet" type="text/css" />
+    <!-- endbuild -->
+  </head>
+  <body ng-app="aplicacionEjemploAngularApp">
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+	<h3 class="text-muted">Aplicaci&oacute;n de Ejemplo - HAT</h3>
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container-fluid">
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="navigationBar">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#"> <span class="glyphicon glyphicon-home"/> Home</a></li>
+					<li><a href="#">Link</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">P&aacute;ginas <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="#/page1">P&aacute;gina 1</a></li>
+							<li><a href="#/page2">P&aacute;gina 2</a></li>
+							<li><a href="#/page3">P&aacute;gina 3</a></li>
+							<li class="divider"></li>
+							<li><a href="#/page4">P&aacute;gina 4</a></li>
+						</ul>
+					</li>
+				</ul>
+      
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#">Link Ejemplo Derecha</a></li>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+	
+	
+	
+    <div class="container">
+
+      <div ng-view=""></div>
+	  
+    </div>
+
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+     <script>
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-XXXXX-X');
+       ga('send', 'pageview');
+    </script>
+
+    <!-- build:js(.) scripts/oldieshim.js -->
+    <!--[if lt IE 9]>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/json3/lib/json3.js"></script>
+    <![endif]-->
+    <!-- endbuild -->
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/bootstrap3-typeahead/bootstrap3-typeahead.js"></script>
+    <script src="bower_components/angucomplete/angucomplete.js"></script>
+    <script src="bower_components/ng-table/ng-table.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/page1.js"></script>
+		<script src="scripts/controllers/page2.js"></script>
+		<script src="scripts/controllers/page3.js"></script>
+		<script src="scripts/controllers/page4.js"></script>
+        <!-- endbuild -->
+</body>
+</html>

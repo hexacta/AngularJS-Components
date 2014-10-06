@@ -241,3 +241,8 @@ th:hover {
 .ng-valid.ng-dirty{
 	border-color: 'green';
 }
+
+
+.modal-dialog-center {
+    margin-top: 25%;
+}

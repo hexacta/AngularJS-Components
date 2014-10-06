@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Date Range Picker</title>
+
+    <style type="text/css">
+    * {
+      font-size: 10px;
+      font-family: Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif;;
+    }
+  </style>
+  
+  <script type="text/javascript" src="./bower_components/angular/angular.js"></script>
+  <script type="text/javascript" src="./bower_components/angular-bindonce/bindonce.js"></script>
+  <script type="text/javascript" src="./bower_components/moment/moment.js"></script>
+  <script type="text/javascript" src="./bower_components/moment-range/lib/moment-range.js"></script>
+  <script type="text/javascript" src="./bower_components/angular-date-range-picker/build/angular-date-range-picker.js"></script>
+  <script type="text/javascript">
+
+    angular.module("AppPrueba", ["dateRangePicker"])
+    angular.module("AppPrueba").controller("ControllerPrueba", function($scope){
+      //Valores Default
+      $scope.range = moment().range("2014-10-01", "2014-10-08")
+
+      //Restablecer Usando un Range Default
+      $scope.toDefault = function(){
+        $scope.range2 = $scope.range
+      }
+
+      $scope.fireCallback = function(range) {
+        console.log(range);
+      };
+
+      $scope.date = null
+
+      //Determinar Rangos Personalizados
+      $scope.rangeSelectOptions = [
+        {
+          label: "2014",
+          range: moment().range(
+            moment().startOf("year").startOf("day"),
+            moment().endOf("year").startOf("day")
+          )
+        },
+        {
+          label: "2013",
+          range: moment().range(
+            moment().startOf("year").add(-1, "year").startOf("day"),
+            moment().add(-1, "year").endOf("year").startOf("day")
+          )
+        },
+        {
+          label: "Fiestas 2014",
+          range: moment().range(
+            "2014-12-24", "2015-01-01")
+        }
+      ]
+    })
+  </script>
+  
+  <link rel="stylesheet" type="text/css" href="./bower_components/angular-date-range-picker/build/angular-date-range-picker.css"/>
+
+</head>
+
+
+<body ng-app="AppPrueba">
+  <div ng-controller="ControllerPrueba">
+    <table>
+      <tr>
+        <td>
+            <div>
+              <h1>Rango de Fechas Con Valores Default</h1>
+              <date-range-picker ng-model="range"></date-range-picker>
+              <h2>Fechas Seleccionadas:</h2>
+              Fecha de Inicio: {{ range.start.toDate() }}
+              <br>
+              Fecha de Fin: {{ range.end.toDate() }}
+            </div>
+        </td>
+        <td>
+            <div>
+              <h1>Rango de Fechas Sin Valores Default </h1>
+              <date-range-picker ng-model="range2" ranged="true" callback="fireCallback(range2)"></date-range-picker>
+              <button ng-click="toDefault()">Reestablecer</button>
+              <h2>Fechas Seleccionadas:</h2>             
+              Fecha de Inicio: {{ range2.start.toDate() }}
+              <br>
+              Fecha de Fin: {{ range2.end.toDate() }}
+            </div>
+        </td>
+        <td>   
+            <div>
+              <h1>Selector de Fecha Unica</h1>
+              <date-range-picker ng-model="date" ranged="false"></date-range-picker>
+              <h2>Fecha Seleccionada:</h2>
+              {{ date.toDate() }}
+            </div>
+        </td>
+        <td>
+            <div>
+              <h1>Selector con Opciones de Rangos Personalizados</h1>
+              <date-range-picker ng-model="dates" custom-select-options="rangeSelectOptions"><date-range-picker/>
+              <h2>Fechas Seleccionadas:</h2>
+              Fecha de Inicio: {{ dates.start.toDate() }}
+              <br>
+              Fecha de Fin: {{ dates.end.toDate() }}
+            </div>
+        </td>
+      </table>
+</body>
+</html>
+

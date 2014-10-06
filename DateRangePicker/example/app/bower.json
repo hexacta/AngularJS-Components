@@ -1,0 +1,23 @@
+{
+  "name": "angular-date-range-picker-test",
+  "version": "0.0.1",
+  "description": "Ejemplo basico de Angular-DateRange-Picker",
+  "author": "",
+  "license": "",
+  "homepage": "",
+  "main": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test*",
+    "demo*",
+    "gruntFile.js",
+    "package.json"
+  ],
+  "dependencies": {
+    "angular-date-range-picker": "latest"
+  },
+  "devDependencies": {
+  }
+}

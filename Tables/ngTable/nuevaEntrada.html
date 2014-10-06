@@ -30,7 +30,7 @@
 	<tbody>
 	<tr>
 		<td>
-			<input type="button" value="Nuevo" ng-click="open()"/>			
+			<input type="button" value="Nuevo" ng-click="toggleModal()"/>			
 			<table ng-table="tableParams" class="table">
 				<tr ng-repeat="user in $data">
 					<td data-title="'Nombre'" sortable="name" class="inner">
@@ -80,24 +80,14 @@
 	</tr>
 	<tbody>
 	</table>
-	<div>
-		<script type="text/ng-template" id="myModalContent.html">
-			<div style="display:block">		        
-				<div class="modal-header">
-            				<h3 class="modal-title">I'm a modal!</h3>
-        			</div>
-        			<div class="modal-body">
-            				Textoooo
-        			</div>
-        			<div class="modal-footer">
-					<button class="btn btn-primary" ng-click="ok()">OK</button>
-            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
-        			</div>
-			</div>
-    		</script>
-
-	</div>
-	
+	<modal title="Nueva entrada" visible="showModal">
+		<form role="form">
+			<input type="text" id="newName" ng-model="myForm.name" placeholder="Nombre"/><br>
+			<input type="text" id="newAge" ng-model="myForm.age" placeholder="Edad"/><br>
+			<input type="button" value="Guardar" ng-click="addNewModal()"/>
+			<input type="button" value="Cancelar" ng-click="toggleModal()"/>
+		</form>
+	</modal>
 </body>
 </html>
 

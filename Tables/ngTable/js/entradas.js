@@ -1,6 +1,6 @@
-var app = angular.module('main', ['ngTable', 'ui.bootstrap']).
+var app = angular.module('main', ['ngTable', 'ui.bootstrap']);
 
-controller('DemoCtrl', function($scope, $filter, ngTableParams, $modal) {
+app.controller('DemoCtrl', function($scope, $filter, ngTableParams, $modal) {
     var data = [{name: "Moroni", age: 50}, {name: "Tiancum", age: 43}, {name: "Jacob", age: 27},
                {name: "Nephi", age: 29}, {name: "Enos", age: 34}, {name: "Tiancum", age: 43},
                {name: "Jacob", age: 27}, {name: "Nephi", age: 29}, {name: "Enos", age: 34},
@@ -8,7 +8,7 @@ controller('DemoCtrl', function($scope, $filter, ngTableParams, $modal) {
                {name: "Enos", age: 34}, {name: "Tiancum", age: 43}, {name: "Jacob", age: 27},
                {name: "Nephi", age: 29}, {name: "Enos", age: 34}];
 
-   var data2 = [{name: "Moroni", age: 50}, {name: "Tiancum", age: 43}, {name: "Jacob", age: 27},
+    var data2 = [{name: "Moroni", age: 50}, {name: "Tiancum", age: 43}, {name: "Jacob", age: 27},
                {name: "Nephi", age: 29}, {name: "Enos", age: 34}, {name: "Tiancum", age: 43},
                {name: "Jacob", age: 27}, {name: "Nephi", age: 29}, {name: "Enos", age: 34},
                {name: "Tiancum", age: 43}, {name: "Jacob", age: 27}, {name: "Nephi", age: 29},
@@ -16,12 +16,24 @@ controller('DemoCtrl', function($scope, $filter, ngTableParams, $modal) {
                {name: "Nephi", age: 29}, {name: "Enos", age: 34}]; 
 
     //POP-UP
-    $scope.modalNew = function(size) {
-	console.log("ACAA");
-	var modalInstance = $modal.open({
-      		templateUrl: 'myModalContent.html',
-      		size: size,
-    		});
+    $scope.showModal = false;
+
+    $scope.toggleModal = function(){
+    	$scope.showModal = !$scope.showModal;
+	$scope.myForm = {};
+        $scope.myForm.name = "";
+        $scope.myForm.age  = "";
+    };
+    
+    $scope.addNewModal = function () {
+	var newRecord = {
+        	name: $scope.myForm.name,
+        	age:  parseInt($scope.myForm.age, 10),
+        };
+	data.push(newRecord);
+	$scope.tableParams.reload();
+	$scope.showModal = !$scope.showModal;
+
     };
 
     $scope.tableParams = new ngTableParams({
@@ -47,7 +59,7 @@ controller('DemoCtrl', function($scope, $filter, ngTableParams, $modal) {
     $scope.showNew = false;   
 
     $scope.toggleNew = function () {
-	$scope.showNew = $scope.showNew === false ? true: false;
+	$scope.showNew = !$scope.showNew;
 	$scope.myForm = {};
         $scope.myForm.name = "";
         $scope.myForm.age  = "";
@@ -60,7 +72,7 @@ controller('DemoCtrl', function($scope, $filter, ngTableParams, $modal) {
         };
 	data2.push(newRecord);
 	$scope.tableParams2.reload();
-	$scope.showNew = $scope.showNew === false ? true: false;
+	$scope.showNew = !$scope.showNew;
 
     };
 
@@ -81,6 +93,48 @@ controller('DemoCtrl', function($scope, $filter, ngTableParams, $modal) {
             $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
         }
     });
+});
+
+app.directive('modal', function () {
+    return {
+      template: '<div class="modal fade">' + 
+          '<div class="modal-dialog">' + 
+            '<div class="modal-content">' + 
+              '<div class="modal-header">' + 
+                '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>' + 
+                '<h4 class="modal-title">{{ title }}</h4>' + 
+              '</div>' + 
+              '<div class="modal-body" ng-transclude></div>' + 
+            '</div>' + 
+          '</div>' + 
+        '</div>',
+      restrict: 'E',
+      transclude: true,
+      replace:true,
+      scope:true,
+      link: function postLink(scope, element, attrs) {
+        scope.title = attrs.title;
+
+        scope.$watch(attrs.visible, function(value){
+          if(value == true)
+            $(element).modal('show');
+          else
+            $(element).modal('hide');
+        });
+
+        $(element).on('shown.bs.modal', function(){
+          scope.$apply(function(){
+            scope.$parent[attrs.visible] = true;
+          });
+        });
+
+        $(element).on('hidden.bs.modal', function(){
+          scope.$apply(function(){
+            scope.$parent[attrs.visible] = false;
+          });
+        });
+      }
+    };
 });
 
 

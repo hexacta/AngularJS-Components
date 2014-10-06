@@ -22,11 +22,13 @@ bower install angular-date-range-picker
 
 Agregar los correspondientes scripts de angular-date-range-picker y sus dependencias al HTML desde su directorio:
 
+```html
  <script type="text/javascript" src="./bower_components/angular/angular.js"></script>
   <script type="text/javascript" src="./bower_components/angular-bindonce/bindonce.js"></script>
   <script type="text/javascript" src="./bower_components/moment/moment.js"></script>
   <script type="text/javascript" src="./bower_components/moment-range/lib/moment-range.js"></script>
   <script type="text/javascript" src="./bower_components/angular-date-range-picker/build/angular-date-range-picker.js"></script>
+```
 
 # 3. Cargar dateRangePicker como dependencia de nuestro modulo JS:
  
@@ -34,15 +36,29 @@ Agregar los correspondientes scripts de angular-date-range-picker y sus dependen
 
 # 4. Uso
 
-Funciones para nuestro Controller:
- //Valores Default
-      $scope.range = moment().range("2014-10-01", "2014-10-08")
+- Uso de las directivas:
+Rango de Fechas:
+```html
+<date-range-picker ng-model="range"></date-range-picker> 
+<input type="text" date-range-picker ng-model="dates"/>
+```
+Fecha Unica:
+```html
+<input type="text" date-range-picker ranged="false"/>      
+```
 
+- Funciones para nuestro Controller:
+ //Valores Default
+```js
+      $scope.range = moment().range("2014-10-01", "2014-10-08")
+```
  //Restablecer Usando un Default Range
+```js
       $scope.toDefault = function(){
         $scope.range2 = $scope.range
-
+```
  //Determinar Rangos Personalizados
+```js
       $scope.rangeSelectOptions = [
         {
           label: "Fiestas 2014",
@@ -50,19 +66,15 @@ Funciones para nuestro Controller:
             "2014-12-24", "2015-01-01")
         }
       ]
+```
 
 Para usarlo, agregar la directiva al objeto date-range-picker:
 
+```html
 custom-select-options="rangeSelectOptions"
-
-Uso de las directivas:
-<date-range-picker ng-model="range"></date-range-picker> 
-<input type="text" date-range-picker ng-model="dates"/>
-
-Elegir fecha unica:
-<input type="text" date-range-picker ranged="false"/>      
+```
 
 # 5. Ejemplo
 
-Para poder visualizar el ejemplo, tomar la carpeta example/app de este repositorio, realizar bower install en la misma, y ejecutar.
+Para poder visualizar el ejemplo, tomar la carpeta example/app de este repositorio, realizar bower install en la misma, y abrir index.html
 
